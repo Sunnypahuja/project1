@@ -1,0 +1,168 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flex Thumbnail</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=550, initial-scale=1">
+    <link rel="stylesheet" href="../dist/jquery.flipster.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="jquery.min.js"></script>
+    <script src="../dist/jquery.flipster.min.js"></script>
+</head>
+<style>
+    ul li {
+        width:14%;
+        height: auto;
+    }
+    ul li img {
+        border: 7px solid rgb(54, 202, 202);
+    }
+    #bigPicture {
+        width: 100%;
+        height: auto;
+    }
+    .active {
+        border: 10px solid rgb(6, 172, 172);
+    }
+</style>
+<body>
+    <div class="container">
+        <div id="bigPicture" class="d-flex justify-content-center">
+            <img src="images/62_01_polar_bears.JPG">
+        </div>
+        <div id="flat" class="border-top-0">
+            <ul>
+                <li>
+                    <img src="images/83_02_emperor_and_King_penguins.JPG">
+                </li>
+                <li>
+                    <img src="images/83_03_arctic_foxes.JPG">
+                </li>
+                <li>
+                    <img src="images/83_04_hippopotamuses.JPG">
+                </li>
+                <li>
+                    <img src="images/83_05_plains_zebra.JPG">
+                </li>
+                <li>
+                    <img src="images/83_06_cuvier_s_gazelle.JPG">
+                </li>
+                <li>
+                    <img src="images/83_08_ostrich.JPG">
+                </li>
+                <li>
+                    <img src="images/83_09_African_elephants.JPG">
+                </li>
+                <li>
+                    <img src="images/83_10_okapi.JPG">
+                </li>
+                <li>
+                    <img src="images/83_11_black_rhinoceros.JPG">
+                </li>
+                <li>
+                    <img src="images/83_12_greater_kudu.JPG">
+                </li>
+                <li>
+                    <img src="images/83_13_Cape_buffalo.JPG">
+                </li>
+                <li>
+                    <img src="images/83_14_blue_wildebeest.JPG">
+                </li>
+                <li>
+                    <img src="images/83_15_warthog.JPG">
+                </li>
+                <li>
+                    <img src="images/83_16_dwarf_crocodile.JPG">
+                </li>
+                <li>
+                    <img src="images/83_17_white_stork.JPG">
+                </li>
+                <li>
+                    <img src="images/83_18_great_white_pelican.JPG">
+                </li>
+                <li>
+                    <img src="images/83_19_Aldabra_giant_tortoise.JPG">
+                </li>
+                <li>
+                    <img src="images/83_20_meerkat.JPG">
+                </li>
+                <li>
+                    <img src="images/83_23_cheetah.JPG">
+                </li>
+                <li>
+                    <img src="images/83_24_western_lowland_gorilla.JPG">
+                </li>
+                <li>
+                    <img src="images/83_25_chimpanzee.JPG">
+                </li>
+                <li>
+                    <img src="images/83_27_Malayan_tapir.JPG">
+                </li>
+                <li>
+                    <img src="images/83_28_giant_panda.JPG">
+                </li>
+                <li>
+                    <img src="images/83_29_Bengal_tiger.JPG">
+                </li>
+                <li>
+                    <img src="images/83_30_red_kangaroo.JPG">
+                </li>
+                <li>
+                    <img src="images/83_31_koala.JPG">
+                </li>
+                <li>
+                    <img src="images/83_32_common_wombat.JPG">
+                </li>
+                <li>
+                    <img src="images/83_33_jaguar.JPG">
+                </li>
+                <li>
+                    <img src="images/83_34_giant_anteater.JPG">
+                </li>
+                <li>
+                    <img src="images/83_35_nine-banded_armadillo.JPG">
+                </li>
+                <li>
+                    <img src="images/83_36_venezuelan_red_howler_monkey.JPG">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+
+            var flat = $("#flat").flipster({
+            style: 'flat',
+            spacing: -0.2,
+            // start specifies the start index, default is 'center'
+            // start: 0,
+            // set loop to true for it to keep playing, default is false
+            loop: false,
+            });
+            // Can research flipster functions at https://github.com/drien/jquery-flipster/
+            // flat.flipster('play', 2000)
+            // flat.flipster('index')
+            
+            // jQuery to remove, clone, and add images from the thumbnail as they are clicked
+            $("#flat img").click(function() {
+                if ($("#flat img").hasClass("active")) {
+                    $("#flat img").removeClass("active");
+                }
+                var clone = $(this).clone();
+                if (clone) {
+                    $(this).addClass("active");
+                }
+                if ($("#bigPicture").has("img")) {
+                    $("#bigPicture img").remove();
+                    clone.appendTo("#bigPicture")
+                }
+ 
+            })
+
+        })
+
+    </script>
+</body>
+</html>
